@@ -2138,7 +2138,7 @@
             function() {
                 var i = 1;
                 return function() {
-                    return i++;
+                    return this.index++;
                 };
             }
         )()
@@ -2148,6 +2148,9 @@
      * Chart constructor.
      */
     var Treant = function( jsonConfig, callback, jQuery ) {
+        
+        this.index = 0;
+        
         if ( jsonConfig instanceof Array ) {
             jsonConfig = JSONconfig.make( jsonConfig );
         }
